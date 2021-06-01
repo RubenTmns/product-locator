@@ -17,18 +17,14 @@ a {
 
 .section {
   position: absolute;
-  border: solid;
+  background-color: red;
   color: red;
-  top: 506px;
-  left: 770px;
-  width: 174px;
-  height: 54px;
+  top: 1185px;
+  left: 1300px;
+  width: 20px;
+  height: 20px;
 }
 
 .image {
-  border: solid;
-  color: black;
   position: relative;
-  top: 10px;
-  width: 1080px;
 }

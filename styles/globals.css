@@ -14,3 +14,24 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.section {
+  position: absolute;
+  border: solid;
+  color :red; 
+  top: 452px;
+  left: 770px;
+  width: 140px;
+  height: 56px
+}
+
+.image{
+  border: solid;
+  color: black;
+  position: relative;
+  top: 10px;
+  width: 1080px;
+}
+
+
+

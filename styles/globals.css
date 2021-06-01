@@ -18,20 +18,17 @@ a {
 .section {
   position: absolute;
   border: solid;
-  color :red; 
-  top: 452px;
+  color: red;
+  top: 506px;
   left: 770px;
-  width: 140px;
-  height: 56px
+  width: 174px;
+  height: 54px;
 }
 
-.image{
+.image {
   border: solid;
   color: black;
   position: relative;
   top: 10px;
   width: 1080px;
 }
-
-
-

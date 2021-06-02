@@ -17,7 +17,7 @@ const Map: React.FC<mapProps> = ({ products }) => {
       <div>
         <ul>
           {products.map((product) => {
-            return <li>{product.label}</li>;
+            return <li key={product.id}>{product.label}</li>;
           })}
         </ul>
       </div>
@@ -38,11 +38,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const products = await productsTab.json();
 
+  let tabIdProduct = [];
+
   const product = products.data.map((singleProduct) => {
     const identifiant =
       singleProduct.id === undefined ? "NOTHING HERE" : singleProduct.id;
     const labels =
       singleProduct.label === undefined ? "NOTHING HERE" : singleProduct.label;
+    tabIdProduct.push(singleProduct.id === "" ? undefined : singleProduct.id);
 
     return {
       id: identifiant,
@@ -50,18 +53,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
     };
   });
 
-  const imagesTab = await fetch(
-    `https://api-gateway.leroymerlin.fr/api-product/v2/products/11782415/media`,
+  let positionTab = [];
+
+  const productsPositionTab = await fetch(
+    `https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/3/products?ids=${tabIdProduct.join(
+      ","
+    )}`,
     {
       method: "GET",
       headers: {
-        "X-Gateway-APIKey": `${process.env.TOKEN_API_PRODUCT}`,
+        "X-Gateway-APIKey": `${process.env.TOKEN_API_GEOPRODUCT}`,
       },
     }
-  );
-
-  const images = await imagesTab.json();
-  console.log(images);
+  )
+    .then((response) => response.json())
+    .then((coordonne) => {
+      coordonne.map((info) => {
+        info.positions.map((position) => {
+          positionTab.push({ id: info.id, x: position.x, y: position.y });
+        });
+      });
+    });
 
   return {
     props: {

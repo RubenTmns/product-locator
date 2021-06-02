@@ -2,8 +2,9 @@ import { GetServerSideProps } from "next";
 import React from "react";
 
 type Products = {
-  id: string;
+  id: any;
   label: string;
+  url: string;
 };
 
 type mapProps = {
@@ -17,7 +18,12 @@ const Map: React.FC<mapProps> = ({ products }) => {
       <div>
         <ul>
           {products.map((product) => {
-            return <li key={product.id}>{product.label}</li>;
+            return (
+              <div>
+                <li key={product.id}>{product.label}</li>
+                <img width="400px" src={product.url} alt="" />
+              </div>
+            );
           })}
         </ul>
       </div>
@@ -26,39 +32,45 @@ const Map: React.FC<mapProps> = ({ products }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  let queryIdProduct = [];
+
+  let positionTab = [];
+
+  let productsList: Products[] = [];
+
   const productsTab = await fetch(
-    `https://api-gateway.leroymerlin.fr/api-product/v2/products?updatedSince=2021-05-27`,
+    `https://api-gateway.leroymerlin.fr/api-product/v2/products?updatedSince=2021-05-27&expand=media`,
     {
       method: "GET",
       headers: {
         "X-Gateway-APIKey": `${process.env.TOKEN_API_PRODUCT}`,
       },
     }
-  );
-
-  const products = await productsTab.json();
-
-  let tabIdProduct = [];
-
-  const product = products.data.map((singleProduct) => {
-    const identifiant =
-      singleProduct.id === undefined ? "NOTHING HERE" : singleProduct.id;
-    const labels =
-      singleProduct.label === undefined ? "NOTHING HERE" : singleProduct.label;
-    tabIdProduct.push(singleProduct.id === "" ? undefined : singleProduct.id);
-
-    return {
-      id: identifiant,
-      label: labels,
-    };
-  });
-
-  let positionTab = [];
+  )
+    .then((response) => response.json())
+    .then((products) => {
+      products.data.map((productsAll) => {
+        queryIdProduct.push(productsAll.id);
+        productsAll.media.data.map((mediaUrl) => {
+          const product = productsList.find(
+            (product) => product.id === productsAll.id
+          );
+          if (!product) {
+            productsList.push({
+              id: productsAll.id,
+              label: productsAll.label,
+              url: `${mediaUrl.url === undefined ? "hello" : mediaUrl.url}`,
+            });
+          }
+        });
+      });
+    });
 
   const productsPositionTab = await fetch(
-    `https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/3/products?ids=${tabIdProduct.join(
+    `https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/3/products?ids=${queryIdProduct.join(
       ","
-    )}`,
+    )}
+    `,
     {
       method: "GET",
       headers: {
@@ -67,17 +79,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   )
     .then((response) => response.json())
-    .then((coordonne) => {
-      coordonne.map((info) => {
-        info.positions.map((position) => {
-          positionTab.push({ id: info.id, x: position.x, y: position.y });
+    .then((objectPosition) => {
+      objectPosition.map((data) => {
+        data.positions.map((position) => {
+          positionTab.push({ id: data.id, x: position.x, y: position.y });
         });
       });
     });
 
   return {
     props: {
-      products: product,
+      products: productsList,
+      productsPosition: positionTab,
     },
   };
 };

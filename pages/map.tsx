@@ -10,7 +10,39 @@ type mapProps = {
   products: Products[];
 };
 
+type tabOfProductsType = [
+  {
+    nameOfProduct: string;
+    x: number;
+    y: number;
+  }
+];
+
+const tabOfProducts: tabOfProductsType = [
+  {
+    nameOfProduct: "Parquet",
+    x: 90,
+    y: 551,
+  },
+  {
+    nameOfProduct: "Plan de travail",
+    x: 1320,
+    y: 336,
+  },
+  {
+    nameOfProduct: "Vitrocéramique",
+    x: 856,
+    y: 312,
+  },
+  {
+    nameOfProduct: "Perceuse",
+    x: 1334,
+    y: 1318,
+  },
+];
+
 const Map: React.FC<mapProps> = ({ products }) => {
+  console.log(products[1]);
   return (
     <div>
       <h1>PAGE API</h1>

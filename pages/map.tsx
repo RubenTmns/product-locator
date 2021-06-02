@@ -11,6 +11,7 @@ type mapProps = {
 };
 
 const Map: React.FC<mapProps> = ({ products }) => {
+  console.log(products[1]);
   return (
     <div>
       <h1>PAGE API</h1>

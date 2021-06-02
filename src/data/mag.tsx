@@ -61,7 +61,7 @@ const sections = [
     left: 215,
     width: 154,
     height: 176,
-    name: "Peinture 1",
+    name: "Peinture",
   },
 
   {
@@ -109,7 +109,7 @@ const sections = [
     left: 214,
     width: 154,
     height: 130,
-    name: "Peinture 2",
+    name: "Peinture",
   },
 
   {

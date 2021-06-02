@@ -133,6 +133,7 @@ a {
   left: 1880px;
   width: 435px;
   height: 135px;
+
 }
 .section12 {
   position: absolute;
@@ -186,6 +187,38 @@ a {
   left: 1250px;
   width: 270px;
   height: 290px;
+}
+
+.section17 {
+  position: absolute;
+  /* background-color: red; */
+  border: solid;
+  color:red;
+  top: 1400px;
+  left: 1515px;
+  width: 810px;
+  height: 290px;
+}
+
+.section18 {
+  position: absolute;
+  /* background-color: red; */
+  border: solid;
+  color:yellow;
+  top: 1240px;
+  left: 1870px;
+  width: 450px;
+  height: 170px;
+}
+
+.section19 {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 536px;
+  left: 1852px;
+  width: 40px;
+  height: 40px;
 }
 
 .image {

@@ -24,6 +24,9 @@ const HomePage: React.FC = () => {
         <div className="section14"></div>
         <div className="section15"></div>
         <div className="section16"></div>
+        <div className="section17"></div>
+        <div className="section18"></div>
+        <div className="section19"></div>
       </div>
     </>
   );

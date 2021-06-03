@@ -27,6 +27,7 @@ const HomePage: React.FC = () => {
         <div className="jardin1"></div>
         <div className="jardin2"></div>
         <div className="pointeur"></div>
+
         <div className="carelage"></div>
         <div className="pvc"></div>
         <div className="poubelle"></div>
@@ -34,6 +35,7 @@ const HomePage: React.FC = () => {
         <div className="boiteDeRangement"></div>
         <div className="lotDe4Cintres"></div>
         <div className="voletRoulant"></div>
+
       </div>
     </>
   );

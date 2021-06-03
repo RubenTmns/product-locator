@@ -67,9 +67,11 @@ const sections = [
   },
   {
     top: 715,
+
     left: 1555,
     width: 300,
     height: 460,
+
     name: "Chauffage",
   },
   {
@@ -123,9 +125,11 @@ const sections = [
   },
   {
     top: 1400,
+
     left: 1515,
     width: 810,
     height: 290,
+
     name: "Jardin",
   },
   {

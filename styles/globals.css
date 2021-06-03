@@ -194,6 +194,7 @@ a {
   left: 1870px;
   width: 450px;
   height: 140px;
+
 }
 
 .carelage {
@@ -225,7 +226,10 @@ a {
   width: 20px;
   height: 20px;
 }
-.hotte {
+
+
+.pointeur {
+
   position: absolute;
   /* background-color: red; */
   background-color: red;

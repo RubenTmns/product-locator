@@ -23,7 +23,6 @@ const sections = [
     height: 420,
     name: "Cuisine",
   },
-
   {
     top: 185,
     left: 1335,
@@ -31,7 +30,6 @@ const sections = [
     height: 420,
     name: "Rangement",
   },
-
   {
     top: 185,
     left: 1685,
@@ -39,7 +37,6 @@ const sections = [
     height: 420,
     name: "Menuiserie",
   },
-
   {
     top: 615,
     left: 1880,
@@ -47,7 +44,6 @@ const sections = [
     height: 240,
     name: "menuiserie",
   },
-
   {
     top: 642,
     left: 80,
@@ -55,7 +51,6 @@ const sections = [
     height: 540,
     name: "Décoration",
   },
-
   {
     top: 650,
     left: 520,
@@ -63,7 +58,6 @@ const sections = [
     height: 430,
     name: "Peinture",
   },
-
   {
     top: 645,
     left: 905,
@@ -71,15 +65,15 @@ const sections = [
     height: 370,
     name: "Salle de bains",
   },
-
   {
     top: 715,
-  left: 1555,
-  width: 300,
-  height: 460,
+
+    left: 1555,
+    width: 300,
+    height: 460,
+
     name: "Chauffage",
   },
-
   {
     top: 855,
     left: 1880,
@@ -87,7 +81,6 @@ const sections = [
     height: 260,
     name: "Electricité",
   },
-
   {
     top: 1115,
     left: 1880,
@@ -95,7 +88,6 @@ const sections = [
     height: 135,
     name: "Plomberie",
   },
-
   {
     top: 1182,
     left: 80,
@@ -103,7 +95,6 @@ const sections = [
     height: 370,
     name: "Éclairage",
   },
-
   {
     top: 1080,
     left: 520,
@@ -111,7 +102,6 @@ const sections = [
     height: 300,
     name: "Peinture",
   },
-
   {
     top: 1015,
     left: 905,
@@ -119,7 +109,6 @@ const sections = [
     height: 360,
     name: "Quincaillerie",
   },
-
   {
     top: 1015,
     left: 1180,
@@ -127,7 +116,6 @@ const sections = [
     height: 360,
     name: "Outillage",
   },
-
   {
     top: 1400,
     left: 1250,
@@ -135,12 +123,13 @@ const sections = [
     height: 290,
     name: "Quincaillerie",
   },
-
   {
     top: 1400,
-  left: 1515,
-  width: 810,
-  height: 290,
+
+    left: 1515,
+    width: 810,
+    height: 290,
+
     name: "Jardin",
   },
   {

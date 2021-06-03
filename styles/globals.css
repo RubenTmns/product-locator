@@ -194,16 +194,78 @@ a {
   left: 1870px;
   width: 450px;
   height: 140px;
+
 }
 
-.pointeur {
+.carelage {
   position: absolute;
   /* background-color: red; */
   background-color: red;
-  top: 536px;
-  left: 1852px;
-  width: 40px;
-  height: 40px;
+  top: 502px;
+  left: 90px;
+  width: 20px;
+  height: 20px;
+}
+
+.pvc {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 527px;
+  left: 90px;
+  width: 20px;
+  height: 20px;
+}
+
+.poubelle {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 326px;
+  left: 1274px;
+  width: 20px;
+  height: 20px;
+}
+
+
+.pointeur {
+
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 198px;
+  left: 988px;
+  width: 20px;
+  height: 20px;
+}
+
+.boiteDeRangement {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 199px;
+  left: 1505px;
+  width: 20px;
+  height: 20px;
+}
+
+.lotDe4Cintres {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 199px;
+  left: 1480px;
+  width: 20px;
+  height: 20px;
+}
+.voletRoulant {
+  position: absolute;
+  /* background-color: red; */
+  background-color: red;
+  top: 410px;
+  left: 2012px;
+  width: 20px;
+  height: 20px;
 }
 
 .image {
@@ -211,12 +273,3 @@ a {
   border: solid;
   color: red;
 }
-/* top: 100,
-    left: 50,
-    width: 296,
-    height: 150, */
-
-/* top: 100,
-    left: 344,
-    width: 200,
-    height: 150, */

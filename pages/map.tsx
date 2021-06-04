@@ -23,14 +23,18 @@ const Map: React.FC<mapProps> = ({ products, search }) => {
 
   const [searchedProduct, setSearchedProduct] = React.useState("");
 
-  const userAction = async () => {
-    await fetch(`http://localhost:3000/api/search`, {
-      method: "GET",
+  const userAction = async (input: any) => {
+    console.log("dedans", input);
+    await fetch(`http://localhost:3000/api/search?q=${input}`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((responseApi) => responseApi.json());
+    })
+      .then((responseApi) => responseApi.json())
+      .then((result) => console.log(result));
   };
+  console.log("dehors", searchedProduct);
 
   return (
     <div>
@@ -46,7 +50,7 @@ const Map: React.FC<mapProps> = ({ products, search }) => {
         <button
           className="btn btn-outline-success"
           type="submit"
-          onClick={() => userAction()}
+          onClick={() => userAction(searchedProduct)}
         >
           Search
         </button>

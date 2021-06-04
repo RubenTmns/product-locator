@@ -35,7 +35,6 @@ const HomePage: React.FC = () => {
         <div className="boiteDeRangement"></div>
         <div className="lotDe4Cintres"></div>
         <div className="voletRoulant"></div>
-
       </div>
     </>
   );

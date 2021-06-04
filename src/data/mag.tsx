@@ -17,7 +17,7 @@ const sections = [
     name: "Sol",
   },
   {
-    top: 185,
+    top: 18e5,
     left: 850,
     width: 485,
     height: 420,

@@ -194,7 +194,6 @@ a {
   left: 1870px;
   width: 450px;
   height: 140px;
-
 }
 
 .carelage {
@@ -227,9 +226,7 @@ a {
   height: 20px;
 }
 
-
 .pointeur {
-
   position: absolute;
   /* background-color: red; */
   background-color: red;

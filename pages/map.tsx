@@ -1,10 +1,12 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-
+import { categoryTab } from "../src/data/mag";
 type Products = {
-  id: any;
-  label: string;
-  url: string;
+  id?: any;
+  label?: string;
+  url?: string;
+  x?: any;
+  y?: any;
 };
 
 type mapProps = {
@@ -27,6 +29,16 @@ const Map: React.FC<mapProps> = ({ products }) => {
             );
           })}
         </ul>
+        {/* <input
+          className="form-control me-2"
+          name="searchInput"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <a className="btn btn-outline-success" href="/api/search">
+          Search
+        </a> */}
       </div>
     </div>
   );
@@ -88,10 +100,37 @@ export const getServerSideProps: GetServerSideProps = async () => {
       });
     });
 
+  // let mergedArray = productsList.map((product, i) =>
+  //   Object.assign({}, product, positionTab[i])
+  // );
+
+  let autre = { category: "autre" };
+
+  let mergedArray = productsList.map((product, i) =>
+    Object.assign({}, product, positionTab[i])
+  );
+
+  console.log(categoryTab);
+
+  let mergeArrayV2 = mergedArray.map((product) => {
+    categoryTab.map((category, i) => {
+      if (
+        category.left <= product.x &&
+        product.x <= category.width &&
+        category.top <= product.y &&
+        product.y <= category.height
+      ) {
+        return Object.assign({}, product, categoryTab[i].category.name);
+      } else {
+        return Object.assign({}, product, autre);
+      }
+    });
+  });
+  console.log(mergeArrayV2);
+
   return {
     props: {
-      products: productsList,
-      productsPosition: positionTab,
+      products: mergedArray,
     },
   };
 };

@@ -194,7 +194,6 @@ a {
   left: 1870px;
   width: 450px;
   height: 140px;
-
 }
 
 .carelage {
@@ -227,9 +226,7 @@ a {
   height: 20px;
 }
 
-
 .pointeur {
-
   position: absolute;
   /* background-color: red; */
   background-color: red;
@@ -272,4 +269,16 @@ a {
   position: relative;
   border: solid;
   color: red;
+}
+
+#clignotant {
+  animation: Test 1s infinite;
+}
+@keyframes Test {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

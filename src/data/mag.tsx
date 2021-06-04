@@ -8,7 +8,7 @@ type Section = {
 
 type Sections = Section[];
 
-const sections = [
+export const sections = [
   {
     top: 185,
     left: 80,
@@ -42,7 +42,7 @@ const sections = [
     left: 1880,
     width: 435,
     height: 240,
-    name: "menuiserie",
+    name: "Menuiserie",
   },
   {
     top: 642,
@@ -125,7 +125,6 @@ const sections = [
   },
   {
     top: 1400,
-
     left: 1515,
     width: 810,
     height: 290,
@@ -142,3 +141,161 @@ const sections = [
 ];
 
 export default sections;
+
+export const categoryTab = [
+  { category: { top: 185, left: 80, width: 850, height: 605, name: "Sol" } },
+  {
+    category: {
+      top: 185,
+      left: 850,
+      width: 1335,
+      height: 605,
+      name: "Cuisine",
+    },
+  },
+  {
+    category: {
+      top: 185,
+      left: 1335,
+      width: 1685,
+      height: 605,
+      name: "Rangement",
+    },
+  },
+  {
+    category: {
+      top: 185,
+      left: 1685,
+      width: 2315,
+      height: 605,
+      name: "Menuiserie",
+    },
+  },
+  {
+    category: {
+      top: 615,
+      left: 1880,
+      width: 2315,
+      height: 855,
+      name: "Menuiserie",
+    },
+  },
+  {
+    top: 642,
+    left: 80,
+    width: 490,
+    height: 1182,
+    name: "Décoration",
+  },
+  {
+    category: {
+      top: 650,
+      left: 520,
+      width: 905,
+      height: 1080,
+      name: "Peinture",
+    },
+  },
+  {
+    category: {
+      top: 1080,
+      left: 520,
+      width: 905,
+      height: 1380,
+      name: "Peinture",
+    },
+  },
+  {
+    category: {
+      top: 645,
+      left: 905,
+      width: 1555,
+      height: 1015,
+      name: "Salle de bains",
+    },
+  },
+  {
+    category: {
+      top: 715,
+
+      left: 1555,
+      width: 1855,
+      height: 1175,
+
+      name: "Chauffage",
+    },
+  },
+  {
+    category: {
+      top: 855,
+      left: 1880,
+      width: 2215,
+      height: 1115,
+      name: "Electricité",
+    },
+  },
+  {
+    category: {
+      top: 1115,
+      left: 1880,
+      width: 2215,
+      height: 1250,
+      name: "Plomberie",
+    },
+  },
+  {
+    category: {
+      top: 1182,
+      left: 80,
+      width: 490,
+      height: 1552,
+      name: "Éclairage",
+    },
+  },
+  {
+    category: {
+      top: 1015,
+      left: 905,
+      width: 1180,
+      height: 1375,
+      name: "Quincaillerie",
+    },
+  },
+  {
+    category: {
+      top: 1400,
+      left: 1250,
+      width: 1520,
+      height: 1690,
+      name: "Quincaillerie",
+    },
+  },
+  {
+    category: {
+      top: 1015,
+      left: 1180,
+      width: 1555,
+      height: 1375,
+      name: "Outillage",
+    },
+  },
+  {
+    category: {
+      top: 1400,
+      left: 1515,
+      width: 2325,
+      height: 1690,
+
+      name: "Jardin",
+    },
+  },
+  {
+    category: {
+      top: 1240,
+      left: 1870,
+      width: 2320,
+      height: 1380,
+      name: "Jardin",
+    },
+  },
+];

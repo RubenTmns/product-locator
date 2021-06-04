@@ -1,21 +1,63 @@
 import { GetServerSideProps } from "next";
-import React from "react";
+import React, { useContext } from "react";
+import search from "./api/search";
 
 type Products = {
-  id: any;
-  label: string;
-  url: string;
+  id?: any;
+  label?: string;
+  url?: string;
+  x?: any;
+  y?: any;
+  category?: any;
 };
 
 type mapProps = {
   products: Products[];
+  search: any;
 };
 
-const Map: React.FC<mapProps> = ({ products }) => {
-  console.log(products[1]);
+const Map: React.FC<mapProps> = ({ products, search }) => {
+  const [productName, setProductsName] = React.useState();
+  const [productMedia, setProductsMedia] = React.useState();
+  const [oneProduct, setOneProduct] = React.useState<boolean>();
+
+  const [searchedProduct, setSearchedProduct] = React.useState("");
+
+  const userAction = async (input: any) => {
+    console.log("dedans", input);
+    await fetch(`http://localhost:3000/api/search?q=${input}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((responseApi) => responseApi.json())
+      .then((result) => console.log(result));
+  };
+  console.log("dehors", searchedProduct);
+
   return (
     <div>
+      <nav>
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Search"
+          name="searchInput"
+          aria-label="Search"
+          onChange={(e) => setSearchedProduct(e.target.value)}
+        />
+        <button
+          className="btn btn-outline-success"
+          type="submit"
+          onClick={() => userAction(searchedProduct)}
+        >
+          Search
+        </button>
+      </nav>
+
       <h1>PAGE API</h1>
+
       <div>
         <ul>
           {products.map((product) => {
@@ -88,10 +130,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
       });
     });
 
+  let mergedArray = productsList.map((product, i) =>
+    Object.assign({}, product, positionTab[i])
+  );
+
   return {
     props: {
-      products: productsList,
-      productsPosition: positionTab,
+      products: mergedArray,
     },
   };
 };

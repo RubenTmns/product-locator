@@ -21,10 +21,9 @@ const HomePage: React.FC<mapProps> = () => {
   const [resolvedProduct, setResolvedProduct] = React.useState<Products[]>([]);
   const [pointeurX, setPointeurX] = React.useState([]);
   const [pointeurY, setPointeurY] = React.useState([]);
+  const [productLocate, setProductLocate] = React.useState([]);
 
   const [searchedProduct, setSearchedProduct] = React.useState("");
-
-  React.useEffect(() => {}, []);
 
   const userAction = async (input: any) => {
     await fetch(`/api/search?q=${input}`, {
@@ -42,6 +41,7 @@ const HomePage: React.FC<mapProps> = () => {
         setResolvedProduct(arrayOfProduct);
       });
   };
+  React.useEffect(() => {}, []);
 
   resolvedProduct.forEach((product) => {
     sections.map((category) => {
@@ -75,28 +75,152 @@ const HomePage: React.FC<mapProps> = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand">Navbar</a>
-          <div className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              name="searchInput"
-              aria-label="Search"
-              onChange={(e) => setSearchedProduct(e.target.value)}
-            />
-            <button
-              className="btn btn-outline-success"
-              type="submit"
-              onClick={() => userAction(searchedProduct)}
+          <a className="navbar-brand" href="#">
+            Product Locator
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarScroll">
+            <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Home
+                </a>
+              </li>
+            </ul>
+            <a className="btn btn-outline-success me-2" type="button" href="#">
+              <div className="bd-highlight">
+                <i className="fas fa-store-alt"></i>
+              </div>
+            </a>
+            <a
+              className="btn btn-outline-success me-2"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@getbootstrap"
             >
-              Search
-            </button>
+              <div className=" bd-highlight">
+                <i className="far fa-user"></i>
+              </div>
+            </a>
+
+            <div className="d-flex">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                name="searchInput"
+                aria-label="Search"
+                onChange={(e) => setSearchedProduct(e.target.value)}
+              />
+              <button
+                className="btn btn-outline-success"
+                type="submit"
+                onClick={() => userAction(searchedProduct)}
+              >
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </nav>
+      {/* Login page */}
+      <div
+        className="modal fade"
+        id="exampleModal"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="d-flex justify-content-center h-100">
+                <div className="card">
+                  <div className="card-header">
+                    <h3>Sign In</h3>
+                    <div className="d-flex justify-content-end social_icon">
+                      <span>
+                        <i className="fab fa-facebook-square"></i>
+                      </span>
+                      <span>
+                        <i className="fab fa-google-plus-square"></i>
+                      </span>
+                      <span>
+                        <i className="fab fa-twitter-square"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="card-body">
+                    <form>
+                      <div className="row mb-3">
+                        <label className="col-sm-2 col-form-label">Email</label>
+                        <div className="col-sm-10">
+                          <input
+                            type="email"
+                            className="form-control"
+                            id="inputEmail3"
+                          />
+                        </div>
+                      </div>
+                      <div className="row mb-3">
+                        <label className="col-sm-2 col-form-label">
+                          Password
+                        </label>
+                        <div className="col-sm-10">
+                          <input
+                            type="password"
+                            className="form-control"
+                            id="inputPassword3"
+                          />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="card-footer">
+                    <div className="d-flex justify-content-center links">
+                      Don't have an account?<a href="#">Sign Up</a>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <a href="#">Forgot your password?</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Fin login page */}
 
       <div className="image">
         <img
@@ -263,3 +387,31 @@ const HomePage: React.FC<mapProps> = () => {
 };
 
 export default HomePage;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  await fetch(`https://api-gateway.leroymerlin.fr/api-stock/v1/stores/all`, {
+    method: "GET",
+    headers: {
+      "X-Gateway-APIKey": `${process.env.TOKEN_API_STOCK}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((stores) => {
+      //console.log(stores);
+    });
+
+  await fetch(` https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/`, {
+    method: "GET",
+    headers: {
+      "X-Gateway-APIKey": `${process.env.TOKEN_API_GEOPRODUCT}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((stores) => {
+      console.log(stores);
+    });
+
+  return {
+    props: {},
+  };
+};

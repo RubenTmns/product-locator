@@ -279,3 +279,49 @@ a {
     opacity: 0;
   }
 }
+
+@import url("https://fonts.googleapis.com/css?family=Numans");
+
+html,
+body {
+  background-image: url("https://www.cospirit.com/magazine/wp-content/uploads/2015/09/store-product-locator-interet-enseignes-cospirit.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+}
+
+.container {
+  height: 100%;
+  align-content: center;
+}
+
+.card {
+  height: 370px;
+  margin-top: 100px;
+  margin-bottom: auto;
+  width: 800px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 1em;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #ffc312;
+}
+
+.social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.card-header h3 {
+  color: white;
+}
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}

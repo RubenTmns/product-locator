@@ -16,10 +16,12 @@ export default async function search(
   if (request.method === "POST") {
     const search = request.query.q;
 
-    console.log("QUERY", search);
+    //console.log("QUERY", search);
     let queryIdProduct = [];
-    let positionTab = [];
+    let positionTab: Products[] = [];
     let productsList: Products[] = [];
+
+    //a verifierrrrrrrrrrrrrrrrrrrrrrrrr
     await fetch(
       `https://api-gateway.leroymerlin.fr/api-product/v2/products/_search?q=${search}`,
       {
@@ -31,13 +33,10 @@ export default async function search(
     )
       .then((responseApi) => responseApi.json())
       .then((result) => {
-        const products = result.data.map((product) => {
+        result.data.map((product) => {
           queryIdProduct.push(product.id);
           productsList.push({ id: product.id, label: product.label });
-          return {
-            id: product.id,
-            label: product.label,
-          };
+          return;
         });
       });
     await fetch(
@@ -64,10 +63,22 @@ export default async function search(
           });
         });
       });
-    let mergedArray = productsList.map((product, i) =>
-      Object.assign({}, product, positionTab[i])
-    );
-    console.log("POSTIONT", mergedArray);
-    response.status(200).json({ mergedArray });
+    positionTab.forEach((positionProduct) => {
+      const productLabel = productsList.find((product) => {
+        return parseInt(product.id) === parseInt(positionProduct.id);
+      });
+      positionProduct.label = productLabel.label;
+    });
+
+    //console.log(positionTab);
+
+    // let mergedArray = productsList.map((product, i) =>
+    //   Object.assign({}, product, positionTab[i])
+    // );
+    //console.log("POSTIONT", mergedArray);
+
+    //fin verificationnnnnnnnnnnnnnnnnnn
+
+    response.status(200).json({ positionTab });
   }
 }

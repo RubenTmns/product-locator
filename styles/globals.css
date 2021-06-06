@@ -270,9 +270,7 @@ a {
   border: solid;
   color: red;
 }
-#clignotant {
-  animation: Test 1s infinite;
-}
+
 @keyframes Test {
   0% {
     opacity: 1;

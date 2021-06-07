@@ -154,7 +154,7 @@ export const sections = [
     left: 1870,
     width: 2320,
     height: 1380,
-    name: "Jardin2",
+    name: "JardinDeux",
   },
 ];
 
@@ -231,7 +231,7 @@ export const categoryObject: CategoryObj = {
     position: { top: 1400, left: 1515, width: 2325, height: 1690 },
     products: [],
   },
-  Jardin2: {
+  JardinDeux: {
     position: { top: 1240, left: 1870, width: 2320, height: 1380 },
     products: [],
   },
@@ -278,7 +278,7 @@ export const categoryTab = [
       left: 1880,
       width: 2315,
       height: 855,
-      name: "Menuiserie",
+      name: "MenuiserieDeux",
     },
   },
   {
@@ -286,7 +286,7 @@ export const categoryTab = [
     left: 80,
     width: 490,
     height: 1182,
-    name: "Décoration",
+    name: "Decoration",
   },
   {
     category: {
@@ -303,7 +303,7 @@ export const categoryTab = [
       left: 520,
       width: 905,
       height: 1380,
-      name: "Peinture",
+      name: "PeintureDeux",
     },
   },
   {
@@ -312,7 +312,7 @@ export const categoryTab = [
       left: 905,
       width: 1555,
       height: 1015,
-      name: "Salle de bains",
+      name: "SalleDeBains",
     },
   },
   {
@@ -332,7 +332,7 @@ export const categoryTab = [
       left: 1880,
       width: 2215,
       height: 1115,
-      name: "Electricité",
+      name: "Electricite",
     },
   },
   {
@@ -350,7 +350,7 @@ export const categoryTab = [
       left: 80,
       width: 490,
       height: 1552,
-      name: "Éclairage",
+      name: "Eclairage",
     },
   },
   {
@@ -368,7 +368,7 @@ export const categoryTab = [
       left: 1250,
       width: 1520,
       height: 1690,
-      name: "Quincaillerie",
+      name: "QuincaillerieDeux",
     },
   },
   {
@@ -396,7 +396,7 @@ export const categoryTab = [
       left: 1870,
       width: 2320,
       height: 1380,
-      name: "Jardin",
+      name: "JardinDeux",
     },
   },
 ];

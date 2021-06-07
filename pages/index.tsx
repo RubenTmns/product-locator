@@ -23,6 +23,11 @@ const HomePage: React.FC<mapProps> = () => {
   const [pointeurY, setPointeurY] = React.useState([]);
   const [productLocate, setProductLocate] = React.useState([]);
 
+  //my List of products
+  const [data, setData] = React.useState(categoryObject);
+
+  //************************ */
+
   const [searchedProduct, setSearchedProduct] = React.useState("");
 
   const userAction = async (input: any) => {
@@ -34,32 +39,34 @@ const HomePage: React.FC<mapProps> = () => {
     })
       .then((responseApi) => responseApi.json())
       .then((result) => {
-        let arrayOfProduct = [];
-        result.positionTab.forEach(({ id, label, x, y }) => {
-          return arrayOfProduct.push({ id: id, label: label, x: x, y: y });
+        result.positionTab.map(({ x, y, label }) => {
+          sections.map((category) => {
+            if (
+              category.left <= x &&
+              x <= category.width &&
+              category.top <= y &&
+              y <= category.height
+            ) {
+              setData({
+                ...categoryObject,
+                [category.name]: {
+                  ...categoryObject[category.name],
+                  products: result,
+                },
+              });
+            }
+          });
         });
-        setResolvedProduct(arrayOfProduct);
+
+        // let arrayOfProduct = [];
+        // result.positionTab.forEach(({ id, label, x, y }) => {
+        //   return arrayOfProduct.push({ id: id, label: label, x: x, y: y });
+        // });
+        // setResolvedProduct(arrayOfProduct);
       });
   };
-  React.useEffect(() => {}, []);
 
-  resolvedProduct.forEach((product) => {
-    sections.map((category) => {
-      if (
-        category.left <= product.x &&
-        product.x <= category.width &&
-        category.top <= product.y &&
-        product.y <= category.height
-      ) {
-        categoryObject[`${category.name}`].products.push({
-          label: product.label,
-          x: product.x,
-          y: product.y,
-        });
-      }
-    });
-  });
-  //console.log(categoryObject);
+  React.useEffect(() => {}, [searchedProduct]);
 
   const dotStyle = (x: number, y: number) => {
     return {
@@ -227,159 +234,16 @@ const HomePage: React.FC<mapProps> = () => {
           src="https://m1.lmcdn.fr/media/18/5d0901067eb45f348d8a8c9f/1798045962/map-png-store-3.png"
           alt=""
         />
-        {categoryObject["Sol"].products.map((product, index) => {
-          return (
-            <div
-              key={product.id}
-              className="sol"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Rangement"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="rangement"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Menuiserie"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="menuiserie1"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["MenuiserieDeux"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="menuiserie2"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Decoration"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="decoration"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Peinture"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="peinture1"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["PeintureDeux"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="peinture2"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["SalleDeBains"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="sdb"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Chauffage"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="chauffage"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Electricite"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="electricite"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Plomberie"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="plomberie"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Quincaillerie"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="quincaillerie1"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["QuincaillerieDeux"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="quincaillerie2"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-
-        {categoryObject["Outillage"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="outillage"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Eclairage"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="eclairage"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Jardin"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="jardin1"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
-        })}
-        {categoryObject["Jardin2"].products.map((product) => {
-          return (
-            <div
-              key={product.id}
-              className="jardin2"
-              style={dotStyle(product.x, product.y)}
-            ></div>
-          );
+        {sections.map(({ name }) => {
+          return data[name].products?.positionTab?.map((product, index) => {
+            return (
+              <div
+                key={index}
+                className={name}
+                style={dotStyle(product.x, product.y)}
+              ></div>
+            );
+          });
         })}
       </div>
     </>
@@ -389,6 +253,9 @@ const HomePage: React.FC<mapProps> = () => {
 export default HomePage;
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  /////////////////////////////////////////////////////////////////////
+  //                            GET ALL STORES                       //
+  ////////////////////////////////////////////////////////////////////
   await fetch(`https://api-gateway.leroymerlin.fr/api-stock/v1/stores/all`, {
     method: "GET",
     headers: {
@@ -400,6 +267,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
       //console.log(stores);
     });
 
+  ///////////////////////////////////////////////////////////////////////
+  //        GET PRODUCTS LOCALISATION IN STORE                      //
+  ///////////////////////////////////////////////////////////////////
+
   await fetch(` https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/`, {
     method: "GET",
     headers: {
@@ -408,7 +279,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   })
     .then((response) => response.json())
     .then((stores) => {
-      console.log(stores);
+      // console.log(stores);
     });
 
   return {

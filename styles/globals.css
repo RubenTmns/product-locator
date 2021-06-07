@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-.sol {
+.Sol {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -25,7 +25,7 @@ a {
   width: 770px;
   height: 420px;
 }
-.cuisine {
+.Cuisine {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -35,7 +35,7 @@ a {
   width: 485px;
   height: 420px;
 }
-.rangement {
+.Rangement {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -45,7 +45,7 @@ a {
   width: 350px;
   height: 420px;
 }
-.menuiserie1 {
+.Menuiserie {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -55,7 +55,7 @@ a {
   width: 630px;
   height: 420px;
 }
-.decoration {
+.Decoration {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -65,7 +65,7 @@ a {
   width: 410px;
   height: 540px;
 }
-.peinture1 {
+.Peinture {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -75,7 +75,7 @@ a {
   width: 385px;
   height: 430px;
 }
-.sdb {
+.SalleDeBains {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -85,7 +85,7 @@ a {
   width: 650px;
   height: 370px;
 }
-.chauffage {
+.Chauffage {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -95,7 +95,7 @@ a {
   width: 300px;
   height: 460px;
 }
-.menuiserie2 {
+.MenuiserieDeux {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -105,7 +105,7 @@ a {
   width: 435px;
   height: 240px;
 }
-.electricite {
+.Electricite {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -115,7 +115,7 @@ a {
   width: 435px;
   height: 260px;
 }
-.plomberie {
+.Plomberie {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -125,7 +125,7 @@ a {
   width: 435px;
   height: 135px;
 }
-.peinture2 {
+.PeintureDeux {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -135,7 +135,7 @@ a {
   width: 385px;
   height: 300px;
 }
-.quincaillerie1 {
+.Quincaillerie {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -145,7 +145,7 @@ a {
   width: 275px;
   height: 360px;
 }
-.outillage {
+.Outillage {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -155,7 +155,7 @@ a {
   width: 375px;
   height: 360px;
 }
-.eclairage {
+.Eclairage {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -165,7 +165,7 @@ a {
   width: 410px;
   height: 370px;
 }
-.quincaillerie2 {
+.QuincaillerieDeux {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -175,7 +175,7 @@ a {
   width: 270px;
   height: 290px;
 }
-.jardin1 {
+.Jardin {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -185,7 +185,7 @@ a {
   width: 810px;
   height: 290px;
 }
-.jardin2 {
+.JardinDeux {
   position: absolute;
   /* background-color: red; */
   border: solid;
@@ -270,6 +270,11 @@ a {
   border: solid;
   color: red;
 }
+/* .plan {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+} */
 
 @keyframes Test {
   0% {
@@ -282,12 +287,12 @@ a {
 
 @import url("https://fonts.googleapis.com/css?family=Numans");
 
-html,
-body {
+.login {
   background-image: url("https://www.cospirit.com/magazine/wp-content/uploads/2015/09/store-product-locator-interet-enseignes-cospirit.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  height: 200%;
+  margin-top: 100px;
   font-family: "Numans", sans-serif;
 }
 
@@ -298,7 +303,7 @@ body {
 
 .card {
   height: 370px;
-  margin-top: 100px;
+  margin-top: 20px;
   margin-bottom: auto;
   width: 800px;
   background-color: rgba(0, 0, 0, 0.5) !important;

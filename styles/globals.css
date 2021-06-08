@@ -19,7 +19,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
- 
+
   top: 185px;
   left: 80px;
   width: 770px;
@@ -49,7 +49,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 185px;
   left: 1685px;
   width: 630px;
@@ -59,7 +59,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
- 
+
   top: 642px;
   left: 80px;
   width: 410px;
@@ -69,7 +69,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 650px;
   left: 520px;
   width: 385px;
@@ -89,7 +89,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 715px;
   left: 1555px;
   width: 300px;
@@ -99,7 +99,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 615px;
   left: 1880px;
   width: 435px;
@@ -109,7 +109,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 855px;
   left: 1880px;
   width: 435px;
@@ -119,7 +119,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 1115px;
   left: 1880px;
   width: 435px;
@@ -129,7 +129,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 1080px;
   left: 520px;
   width: 385px;
@@ -139,7 +139,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 1015px;
   left: 905px;
   width: 275px;
@@ -158,7 +158,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 1182px;
   left: 80px;
   width: 410px;
@@ -168,7 +168,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
- 
+
   top: 1400px;
   left: 1250px;
   width: 270px;
@@ -188,7 +188,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  
+
   top: 1240px;
   left: 1870px;
   width: 450px;
@@ -284,7 +284,6 @@ a {
 .image {
   position: relative;
   border: solid;
-  color: red;
 }
 /* .plan {
   display: flex;
@@ -347,7 +346,7 @@ a {
   top: -45px;
 }
 
-.notreNav{
+.notreNav {
   position: relative;
   top: 0px;
   left: 0px;

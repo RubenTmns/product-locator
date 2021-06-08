@@ -8,6 +8,7 @@ type Products = {
   x?: any;
   y?: any;
   category?: any;
+  bgColor?: string;
 };
 
 type mapProps = {
@@ -15,21 +16,16 @@ type mapProps = {
   search: any;
 };
 
-
 const HomePage: React.FC<mapProps> = () => {
-  const [productName, setProductsName] = React.useState();
-  const [productMedia, setProductsMedia] = React.useState();
   const [resolvedProduct, setResolvedProduct] = React.useState<Products[]>([]);
-  const [pointeurX, setPointeurX] = React.useState([]);
-  const [pointeurY, setPointeurY] = React.useState([]);
-  const [productLocate, setProductLocate] = React.useState([]);
 
-  //my List of products
   const [data, setData] = React.useState(categoryObject);
 
-  //************************ */
-
   const [searchedProduct, setSearchedProduct] = React.useState("");
+
+  const [changeColor, setChangeColor] = React.useState("red");
+
+  const [idProduct, setIdProduct] = React.useState("");
 
   const userAction = async (input: any) => {
     await fetch(`/api/search?q=${input}`, {
@@ -61,21 +57,33 @@ const HomePage: React.FC<mapProps> = () => {
       });
   };
 
-  
-  const [changeColor, setChangeColor] = React.useState("red")
-  React.useEffect(() => {setChangeColor("red")}, [searchedProduct]);
-
-
   const dotStyle = (x: number, y: number) => {
     return {
       top: y,
       left: x,
       width: 30,
       height: 30,
-      color: changeColor,
-      "background-color": changeColor,
+      color: "red",
+      "background-color": "red",
       "border-radius": 25,
       animation: "Test 1s infinite",
+    };
+  };
+  const dotStyleOneProduct = (x: number, y: number) => {
+    return {
+      top: y,
+      left: x,
+      width: 30,
+      height: 30,
+      color: "blue",
+      "background-color": "blue",
+      "border-radius": 25,
+      animation: "Test 1s infinite",
+    };
+  };
+  const imageScale = () => {
+    return {
+      transform: "scale(1.0056646525679758)",
     };
   };
   return (
@@ -225,9 +233,11 @@ const HomePage: React.FC<mapProps> = () => {
         </div>
       </div>
 
+      <button onClick={() => console.log(window.innerWidth / 2648)}></button>
+
       {/* Fin login page */}
 
-      <div className="image">
+      <div className="image" style={{ transform: `scale(0.5438066465256798)` }}>
         <img
           src="https://m1.lmcdn.fr/media/18/5d0901067eb45f348d8a8c9f/1798045962/map-png-store-3.png"
           alt=""
@@ -236,11 +246,19 @@ const HomePage: React.FC<mapProps> = () => {
           return data[name].products?.positionTab?.map((product, index) => {
             return (
               <>
-                <div
-                  key={index}
-                  className={name}
-                  style={dotStyle(product.x, product.y)}
-                ></div>
+                {product.id === idProduct ? (
+                  <div
+                    key={index}
+                    className={name}
+                    style={dotStyleOneProduct(product.x, product.y)}
+                  ></div>
+                ) : (
+                  <div
+                    key={index}
+                    className={name}
+                    style={dotStyle(product.x, product.y)}
+                  ></div>
+                )}
               </>
             );
           });
@@ -286,27 +304,27 @@ const HomePage: React.FC<mapProps> = () => {
                               style={{ width: 500, height: 270 }}
                               key={index}
                             >
-                              <div className="card-body" >
+                              <div className="card-body">
                                 <br />
-                                <h4 className="card-title" >{product.label}</h4>
+                                <h4 className="card-title">{product.label}</h4>
                                 <br />
                                 <img
-
                                   src={product.img}
-
                                   className="card-img-top"
                                   alt="my Image"
                                   style={{ width: 120, height: 100 }}
-                                  // onClick={() => dotStyleDeux(product.x, product.y)}
-                                  // onClick={() => userAction(searchedProduct)}
                                 />
                                 <br />
                                 <h5 className="card-title">
-
                                   {product.price + "0"} €
                                 </h5>
-                                <button className="btn btn-primary" onClick={() => setChangeColor("green")}>Afficher ce produit</button> 
-                               
+                                <button
+                                  className="btn btn-primary"
+                                  onClick={(e) => setIdProduct(product.id)}
+                                  value={product.id}
+                                >
+                                  Afficher ce produit sur la carte
+                                </button>
 
                                 <br />
                               </div>

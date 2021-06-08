@@ -365,7 +365,7 @@ const HomePage: React.FC<mapProps> = () => {
                                   {product.price + "0"} €
                                 </h5>
                                 <a href="#" className="btn btn-primary">
-                                  Link to Product
+                                  Afficher produit
                                 </a>
                                 <br />
                               </div>

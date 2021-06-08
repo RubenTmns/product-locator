@@ -15,68 +15,6 @@ type mapProps = {
   search: any;
 };
 
-type ProductTest = {
-  id?: any;
-  label?: string;
-  url?: string;
-  price?: number;
-};
-const testab: ProductTest[] = [
-  {
-    id: 1,
-    label: "marteau piqueur",
-    url: "noImage.png",
-    price: 2299,
-  },
-  {
-    id: 2,
-    label: "marteau à clous",
-    url: "noImage.png",
-    price: 1199,
-  },
-  {
-    id: 3,
-    label: "marteau sauvage",
-    url: "noImage.png",
-    price: 899,
-  },
-  {
-    id: 4,
-    label: "marteau marteau",
-    url: "noImage.png",
-    price: 9799,
-  },
-  {
-    id: 5,
-    label: "marteau vert",
-    url: "noImage.png",
-    price: 9499,
-  },
-  {
-    id: 6,
-    label: "marteau de Thor",
-    url: "noImage.png",
-    price: 9999,
-  },
-  {
-    id: 7,
-    label: "marteau de Thor",
-    url: "noImage.png",
-    price: 9999,
-  },
-  {
-    id: 8,
-    label: "marteau de Thor",
-    url: "noImage.png",
-    price: 9999,
-  },
-  {
-    id: 9,
-    label: "marteau de Thor",
-    url: "noImage.png",
-    price: 9999,
-  },
-];
 
 const HomePage: React.FC<mapProps> = () => {
   const [productName, setProductsName] = React.useState();
@@ -122,8 +60,9 @@ const HomePage: React.FC<mapProps> = () => {
         });
       });
   };
-
-  React.useEffect(() => {}, [searchedProduct]);
+  
+  const [changeColor, setChangeColor] = React.useState("red")
+  React.useEffect(() => {setChangeColor("red")}, [searchedProduct]);
 
   const dotStyle = (x: number, y: number) => {
     return {
@@ -131,15 +70,15 @@ const HomePage: React.FC<mapProps> = () => {
       left: x,
       width: 30,
       height: 30,
-      color: "red",
-      "background-color": "#ff0000",
+      color: changeColor,
+      "background-color": changeColor,
       "border-radius": 25,
       animation: "Test 1s infinite",
     };
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="notreNav navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Product Locator
@@ -300,9 +239,6 @@ const HomePage: React.FC<mapProps> = () => {
                   className={name}
                   style={dotStyle(product.x, product.y)}
                 ></div>
-                {/* <div className="maman">
-                  <h6 key={index}>{product.label}</h6>
-                </div> */}
               </>
             );
           });
@@ -345,26 +281,27 @@ const HomePage: React.FC<mapProps> = () => {
                           <>
                             <div
                               className="card d-flex justify-content-evenly"
-                              style={{ width: 500, height: 250 }}
+                              style={{ width: 500, height: 270 }}
                               key={index}
                             >
-                              <div className="card-body">
+                              <div className="card-body" >
                                 <br />
-                                <h4 className="card-title">{product.label}</h4>
+                                <h4 className="card-title" >{product.label}</h4>
                                 <br />
                                 <img
-                                  src={product.url}
+                                  src="noImage.png"
                                   className="card-img-top"
                                   alt="my Image"
                                   style={{ width: 120, height: 100 }}
+                                  // onClick={() => dotStyleDeux(product.x, product.y)}
+                                  // onClick={() => userAction(searchedProduct)}
                                 />
                                 <br />
                                 <h5 className="card-title">
-                                  {product.price / 100} €
+                                  {product.prince / 100} €
                                 </h5>
-                                <a href="#" className="btn btn-primary">
-                                  Link to Product
-                                </a>
+                                <button className="btn btn-primary" onClick={() => setChangeColor("green")}>Afficher ce produit</button> 
+                               
                                 <br />
                               </div>
                               <br />

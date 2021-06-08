@@ -23,7 +23,7 @@ export default async function search(
 
     //a verifierrrrrrrrrrrrrrrrrrrrrrrrr
     await fetch(
-      `https://api-gateway.leroymerlin.fr/api-product/v2/products/_search?q=${search}`,
+      `https://api-gateway.leroymerlin.fr/api-product/v2/products/_search?q=${search}&expand=media`,
       {
         method: "GET",
         headers: {

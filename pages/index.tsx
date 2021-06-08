@@ -120,12 +120,6 @@ const HomePage: React.FC<mapProps> = () => {
             }
           });
         });
-
-        // let arrayOfProduct = [];
-        // result.positionTab.forEach(({ id, label, x, y }) => {
-        //   return arrayOfProduct.push({ id: id, label: label, x: x, y: y });
-        // });
-        // setResolvedProduct(arrayOfProduct);
       });
   };
 
@@ -322,7 +316,7 @@ const HomePage: React.FC<mapProps> = () => {
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample"
           >
-            <h4>PRODUcTS</h4>
+            <h4>PRODUCTS</h4>
           </button>
           <div
             className="offcanvas offcanvas-start"
@@ -344,34 +338,40 @@ const HomePage: React.FC<mapProps> = () => {
             <div className="offcanvas-body">
               <div className="col-xl-auto">
                 <div className="col-xl-auto" style={{ width: 16, height: 27 }}>
-                  {testab.map((product, id) => {
-                    return (
-                      <div
-                        className="card d-flex justify-content-evenly"
-                        style={{ width: 500, height: 250 }}
-                        key={id}
-                      >
-                        <div className="card-body">
-                          <br />
-                          <h4 className="card-title">{product.label}</h4>
-                          <br />
-                          <img
-                            src={product.url}
-                            className="card-img-top"
-                            alt="my Image"
-                            style={{ width: 120, height: 100 }}
-                          />
-                          <br />
-                          <h5 className="card-title">
-                            {product.price / 100} €
-                          </h5>
-                          <a href="#" className="btn btn-primary">
-                            Link to Product
-                          </a>
-                          <br />
-                        </div>
-                        <br />
-                      </div>
+                  {sections.map(({ name }) => {
+                    return data[name].products?.positionTab?.map(
+                      (product, index) => {
+                        return (
+                          <>
+                            <div
+                              className="card d-flex justify-content-evenly"
+                              style={{ width: 500, height: 250 }}
+                              key={index}
+                            >
+                              <div className="card-body">
+                                <br />
+                                <h4 className="card-title">{product.label}</h4>
+                                <br />
+                                <img
+                                  src={product.url}
+                                  className="card-img-top"
+                                  alt="my Image"
+                                  style={{ width: 120, height: 100 }}
+                                />
+                                <br />
+                                <h5 className="card-title">
+                                  {product.price / 100} €
+                                </h5>
+                                <a href="#" className="btn btn-primary">
+                                  Link to Product
+                                </a>
+                                <br />
+                              </div>
+                              <br />
+                            </div>
+                          </>
+                        );
+                      }
                     );
                   })}
                 </div>

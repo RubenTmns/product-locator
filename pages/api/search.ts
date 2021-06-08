@@ -3,10 +3,11 @@ import { NextApiRequest, NextApiResponse } from "next";
 type Products = {
   id?: any;
   label?: string;
-  url?: string;
+  img?: string;
   x?: any;
   y?: any;
   category?: any;
+  price?: number;
 };
 
 export default async function search(
@@ -20,8 +21,9 @@ export default async function search(
     let queryIdProduct = [];
     let positionTab: Products[] = [];
     let productsList: Products[] = [];
+    let productsPrice: Products[] = [];
 
-    //a verifierrrrrrrrrrrrrrrrrrrrrrrrr
+    //PRODUCST-SEARCH
     await fetch(
       `https://api-gateway.leroymerlin.fr/api-product/v2/products/_search?q=${search}&expand=media`,
       {
@@ -32,13 +34,43 @@ export default async function search(
       }
     )
       .then((responseApi) => responseApi.json())
-      .then((result) => {
-        result.data.map((product) => {
-          queryIdProduct.push(product.id);
-          productsList.push({ id: product.id, label: product.label });
-          return;
+      .then((products) => {
+        products.data.map((productsAll) => {
+          queryIdProduct.push(productsAll.id);
+          productsAll.media.data.map((mediaUrl) => {
+            const product = productsList.find(
+              (product) => product.id === productsAll.id
+            );
+            if (!product) {
+              productsList.push({
+                id: productsAll.id,
+                label: productsAll.label,
+                img: `${mediaUrl.url === undefined ? "hello" : mediaUrl.url}`,
+              });
+            }
+          });
         });
       });
+    ////////// PRICE
+    await fetch(
+      `https://api-gateway.leroymerlin.fr/api-price/v1/prices?productIds=${queryIdProduct.join(
+        ","
+      )}&storeId=3`,
+      {
+        method: "GET",
+        headers: {
+          "X-Gateway-APIKey": `${process.env.TOKEN_API_PRICE}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        result.data.map((data) => {
+          productsPrice.push({ id: data.productId, price: data.price });
+        });
+      });
+
+    //////// GEOLOCALISATION
     await fetch(
       `https://api-gateway.leroymerlin.fr/api-geoproduct/v2/stores/3/products?ids=${queryIdProduct.join(
         ","
@@ -54,6 +86,7 @@ export default async function search(
       .then((response) => response.json())
       .then((objectPosition) => {
         objectPosition.map((data) => {
+          // console.log(data);
           data.positions.map((position) => {
             positionTab.push({
               id: data.id,
@@ -67,10 +100,16 @@ export default async function search(
       const productLabel = productsList.find((product) => {
         return parseInt(product.id) === parseInt(positionProduct.id);
       });
+      const productPrice = productsPrice.find((product) => {
+        return parseInt(product.id) === parseInt(positionProduct.id);
+      });
+
       positionProduct.label = productLabel.label;
+      positionProduct.img = productLabel.img;
+      positionProduct.price = productPrice.price;
     });
 
-    //console.log(positionTab);
+    console.log(positionTab);
 
     // let mergedArray = productsList.map((product, i) =>
     //   Object.assign({}, product, positionTab[i])

@@ -19,7 +19,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(21, 255, 0);
+ 
   top: 185px;
   left: 80px;
   width: 770px;
@@ -29,7 +29,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: yellow;
+
   top: 185px;
   left: 850px;
   width: 485px;
@@ -39,7 +39,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: yellow;
+
   top: 185px;
   left: 1335px;
   width: 350px;
@@ -49,7 +49,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(0, 255, 76);
+  
   top: 185px;
   left: 1685px;
   width: 630px;
@@ -59,7 +59,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(255, 0, 242);
+ 
   top: 642px;
   left: 80px;
   width: 410px;
@@ -69,7 +69,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(174, 0, 255);
+  
   top: 650px;
   left: 520px;
   width: 385px;
@@ -79,7 +79,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: blue;
+
   top: 645px;
   left: 905px;
   width: 650px;
@@ -89,7 +89,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(0, 183, 255);
+  
   top: 715px;
   left: 1555px;
   width: 300px;
@@ -99,7 +99,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(0, 255, 76);
+  
   top: 615px;
   left: 1880px;
   width: 435px;
@@ -109,7 +109,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: grey;
+  
   top: 855px;
   left: 1880px;
   width: 435px;
@@ -119,7 +119,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: grey;
+  
   top: 1115px;
   left: 1880px;
   width: 435px;
@@ -129,7 +129,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(174, 0, 255);
+  
   top: 1080px;
   left: 520px;
   width: 385px;
@@ -139,7 +139,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: rgb(255, 238, 0);
+  
   top: 1015px;
   left: 905px;
   width: 275px;
@@ -149,7 +149,6 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: orange;
   top: 1015px;
   left: 1180px;
   width: 375px;
@@ -159,7 +158,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: blue;
+  
   top: 1182px;
   left: 80px;
   width: 410px;
@@ -169,7 +168,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: yellow;
+ 
   top: 1400px;
   left: 1250px;
   width: 270px;
@@ -179,7 +178,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: red;
+
   top: 1400px;
   left: 1515px;
   width: 810px;
@@ -189,7 +188,7 @@ a {
   position: absolute;
   /* background-color: red; */
   border: solid;
-  color: yellow;
+  
   top: 1240px;
   left: 1870px;
   width: 450px;
@@ -346,4 +345,11 @@ a {
   position: absolute;
   right: 20px;
   top: -45px;
+}
+
+.notreNav{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 7rem;
 }

@@ -15,6 +15,69 @@ type mapProps = {
   search: any;
 };
 
+type ProductTest = {
+  id?: any;
+  label?: string;
+  url?: string;
+  price?: number;
+};
+const testab: ProductTest[] = [
+  {
+    id: 1,
+    label: "marteau piqueur",
+    url: "noImage.png",
+    price: 2299,
+  },
+  {
+    id: 2,
+    label: "marteau à clous",
+    url: "noImage.png",
+    price: 1199,
+  },
+  {
+    id: 3,
+    label: "marteau sauvage",
+    url: "noImage.png",
+    price: 899,
+  },
+  {
+    id: 4,
+    label: "marteau marteau",
+    url: "noImage.png",
+    price: 9799,
+  },
+  {
+    id: 5,
+    label: "marteau vert",
+    url: "noImage.png",
+    price: 9499,
+  },
+  {
+    id: 6,
+    label: "marteau de Thor",
+    url: "noImage.png",
+    price: 9999,
+  },
+  {
+    id: 7,
+    label: "marteau de Thor",
+    url: "noImage.png",
+    price: 9999,
+  },
+  {
+    id: 8,
+    label: "marteau de Thor",
+    url: "noImage.png",
+    price: 9999,
+  },
+  {
+    id: 9,
+    label: "marteau de Thor",
+    url: "noImage.png",
+    price: 9999,
+  },
+];
+
 const HomePage: React.FC<mapProps> = () => {
   const [productName, setProductsName] = React.useState();
   const [productMedia, setProductsMedia] = React.useState();
@@ -237,14 +300,85 @@ const HomePage: React.FC<mapProps> = () => {
         {sections.map(({ name }) => {
           return data[name].products?.positionTab?.map((product, index) => {
             return (
-              <div
-                key={index}
-                className={name}
-                style={dotStyle(product.x, product.y)}
-              ></div>
+              <>
+                <div
+                  key={index}
+                  className={name}
+                  style={dotStyle(product.x, product.y)}
+                ></div>
+                {/* <div className="maman">
+                  <h6 key={index}>{product.label}</h6>
+                </div> */}
+              </>
             );
           });
         })}
+
+        <div className="liste">
+          <button
+            className="btn btn-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+          >
+            <h4>PRODUcTS</h4>
+          </button>
+          <div
+            className="offcanvas offcanvas-start"
+            id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel"
+            style={{ height: 1950, width: 600 }}
+          >
+            <div className="offcanvas-header">
+              <h3 className="offcanvas-title" id="offcanvasExampleLabel">
+                Product Locator
+              </h3>
+              <button
+                type="button"
+                className="btn-close text-reset"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="offcanvas-body">
+              <div className="col-xl-auto">
+                <div className="col-xl-auto" style={{ width: 16, height: 27 }}>
+                  {testab.map((product, id) => {
+                    return (
+                      <div
+                        className="card d-flex justify-content-evenly"
+                        style={{ width: 500, height: 250 }}
+                        key={id}
+                      >
+                        <div className="card-body">
+                          <br />
+                          <h4 className="card-title">{product.label}</h4>
+                          <br />
+                          <img
+                            src={product.url}
+                            className="card-img-top"
+                            alt="my Image"
+                            style={{ width: 120, height: 100 }}
+                          />
+                          <br />
+                          <h5 className="card-title">
+                            {product.price / 100} €
+                          </h5>
+                          <a href="#" className="btn btn-primary">
+                            Link to Product
+                          </a>
+                          <br />
+                        </div>
+                        <br />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -235,6 +235,10 @@ export const categoryObject: CategoryObj = {
     position: { top: 1240, left: 1870, width: 2320, height: 1380 },
     products: [],
   },
+  liste: {
+    position: { top: 60, left: 2320, width: 2320, height: 1380 },
+    products: [],
+  },
 };
 
 ///////////////////////////////////////////////

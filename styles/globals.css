@@ -264,6 +264,23 @@ a {
   width: 20px;
   height: 20px;
 }
+.liste {
+  position: absolute;
+  /* border: solid; */
+  color: rgb(2, 3, 3);
+  top: 60px;
+  left: 80px;
+  width: 250px;
+  height: 800px;
+  text-align: center;
+}
+
+.card {
+  margin-left: 20;
+}
+.card-img-top {
+  margin-left: 100;
+}
 
 .image {
   position: relative;

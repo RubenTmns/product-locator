@@ -123,6 +123,8 @@ const HomePage: React.FC<mapProps> = () => {
       });
   };
 
+  console.log(data);
+
   React.useEffect(() => {}, [searchedProduct]);
 
   const dotStyle = (x: number, y: number) => {
@@ -353,14 +355,14 @@ const HomePage: React.FC<mapProps> = () => {
                                 <h4 className="card-title">{product.label}</h4>
                                 <br />
                                 <img
-                                  src={product.url}
+                                  src={product.img}
                                   className="card-img-top"
                                   alt="my Image"
                                   style={{ width: 120, height: 100 }}
                                 />
                                 <br />
                                 <h5 className="card-title">
-                                  {product.price / 100} €
+                                  {product.price + "0"} €
                                 </h5>
                                 <a href="#" className="btn btn-primary">
                                   Link to Product

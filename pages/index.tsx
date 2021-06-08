@@ -60,9 +60,11 @@ const HomePage: React.FC<mapProps> = () => {
         });
       });
   };
+
   
   const [changeColor, setChangeColor] = React.useState("red")
   React.useEffect(() => {setChangeColor("red")}, [searchedProduct]);
+
 
   const dotStyle = (x: number, y: number) => {
     return {
@@ -289,7 +291,9 @@ const HomePage: React.FC<mapProps> = () => {
                                 <h4 className="card-title" >{product.label}</h4>
                                 <br />
                                 <img
-                                  src="noImage.png"
+
+                                  src={product.img}
+
                                   className="card-img-top"
                                   alt="my Image"
                                   style={{ width: 120, height: 100 }}
@@ -298,10 +302,12 @@ const HomePage: React.FC<mapProps> = () => {
                                 />
                                 <br />
                                 <h5 className="card-title">
-                                  {product.prince / 100} €
+
+                                  {product.price + "0"} €
                                 </h5>
                                 <button className="btn btn-primary" onClick={() => setChangeColor("green")}>Afficher ce produit</button> 
                                
+
                                 <br />
                               </div>
                               <br />

@@ -8,6 +8,7 @@ type Products = {
   x?: any;
   y?: any;
   category?: any;
+  bgColor?: string;
 };
 
 type mapProps = {
@@ -89,9 +90,10 @@ const HomePage: React.FC<mapProps> = () => {
   //my List of products
   const [data, setData] = React.useState(categoryObject);
 
-  //************************ */
-
   const [searchedProduct, setSearchedProduct] = React.useState("");
+
+  //************************ */
+  const [bgColor, setBgColor] = React.useState("#ff0000");
 
   const userAction = async (input: any) => {
     await fetch(`/api/search?q=${input}`, {
@@ -125,14 +127,14 @@ const HomePage: React.FC<mapProps> = () => {
 
   React.useEffect(() => {}, [searchedProduct]);
 
-  const dotStyle = (x: number, y: number) => {
+  const dotStyle = (x: number, y: number, bg) => {
     return {
       top: y,
       left: x,
       width: 30,
       height: 30,
       color: "red",
-      "background-color": "#ff0000",
+      "background-color": bg,
       "border-radius": 25,
       animation: "Test 1s infinite",
     };
@@ -298,7 +300,7 @@ const HomePage: React.FC<mapProps> = () => {
                 <div
                   key={index}
                   className={name}
-                  style={dotStyle(product.x, product.y)}
+                  style={dotStyle(product.x, product.y, bgColor)}
                 ></div>
                 {/* <div className="maman">
                   <h6 key={index}>{product.label}</h6>

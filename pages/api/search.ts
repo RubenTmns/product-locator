@@ -109,8 +109,6 @@ export default async function search(
       positionProduct.price = productPrice.price;
     });
 
-    console.log(positionTab);
-
     // let mergedArray = productsList.map((product, i) =>
     //   Object.assign({}, product, positionTab[i])
     // );

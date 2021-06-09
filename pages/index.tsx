@@ -1,6 +1,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import { categoryTab, sections, categoryObject } from "../src/data/mag";
+import Link from "next/link";
 type Products = {
   id?: any;
   label?: string;
@@ -57,6 +58,8 @@ const HomePage: React.FC<mapProps> = () => {
       });
   };
 
+  const [deleteColor, setDeleteColor] = React.useState("block");
+
   const dotStyle = (x: number, y: number) => {
     return {
       top: y,
@@ -64,6 +67,7 @@ const HomePage: React.FC<mapProps> = () => {
       width: 30,
       height: 30,
       color: "red",
+      display: deleteColor,
       "background-color": "red",
       "border-radius": 25,
       animation: "Test 1s infinite",
@@ -75,20 +79,16 @@ const HomePage: React.FC<mapProps> = () => {
       left: x,
       width: 30,
       height: 30,
-      color: "blue",
-      "background-color": "blue",
+      color: "#78BE20",
+      "background-color": "#78BE20",
       "border-radius": 25,
       animation: "Test 1s infinite",
     };
   };
-  const imageScale = () => {
-    return {
-      transform: "scale(1.0056646525679758)",
-    };
-  };
+
   return (
     <>
-      <nav className="notreNav navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="notreNav navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Product Locator
@@ -150,150 +150,16 @@ const HomePage: React.FC<mapProps> = () => {
         </div>
       </nav>
       {/* Login page */}
-      <div
-        className="modal fade"
-        id="exampleModal"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div className="d-flex justify-content-center h-100">
-                <div className="card">
-                  <div className="card-header">
-                    <h3>Sign In</h3>
-                    <div className="d-flex justify-content-end social_icon">
-                      <span>
-                        <i className="fab fa-facebook-square"></i>
-                      </span>
-                      <span>
-                        <i className="fab fa-google-plus-square"></i>
-                      </span>
-                      <span>
-                        <i className="fab fa-twitter-square"></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div className="card-body">
-                    <form>
-                      <div className="row mb-3">
-                        <label className="col-sm-2 col-form-label">Email</label>
-                        <div className="col-sm-10">
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="inputEmail3"
-                          />
-                        </div>
-                      </div>
-                      <div className="row mb-3">
-                        <label className="col-sm-2 col-form-label">
-                          Password
-                        </label>
-                        <div className="col-sm-10">
-                          <input
-                            type="password"
-                            className="form-control"
-                            id="inputPassword3"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div className="card-footer">
-                    <div className="d-flex justify-content-center links">
-                      Don't have an account?<a href="#">Sign Up</a>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                      <a href="#">Forgot your password?</a>
-                    </div>
-                  </div>
-                </div>
+
+      <div className="all container-fluid">
+        <div className="row">
+          <div className="sidebar col-3">
+            <div style={{ height: 1950, width: 400 }}>
+              <div>
+                <h3>Product Locator</h3>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button onClick={() => console.log(window.innerWidth / 2648)}></button>
-
-      {/* Fin login page */}
-
-      <div className="image" style={{ transform: `scale(0.5438066465256798)` }}>
-        <img
-          src="https://m1.lmcdn.fr/media/18/5d0901067eb45f348d8a8c9f/1798045962/map-png-store-3.png"
-          alt=""
-        />
-        {sections.map(({ name }) => {
-          return data[name].products?.positionTab?.map((product, index) => {
-            return (
-              <>
-                {product.id === idProduct ? (
-                  <div
-                    key={index}
-                    className={name}
-                    style={dotStyleOneProduct(product.x, product.y)}
-                  ></div>
-                ) : (
-                  <div
-                    key={index}
-                    className={name}
-                    style={dotStyle(product.x, product.y)}
-                  ></div>
-                )}
-              </>
-            );
-          });
-        })}
-
-        <div className="liste">
-          <button
-            className="btn btn-primary"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample"
-          >
-            <h4>PRODUCTS</h4>
-          </button>
-          <div
-            className="offcanvas offcanvas-start"
-            id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel"
-            style={{ height: 1950, width: 600 }}
-          >
-            <div className="offcanvas-header">
-              <h3 className="offcanvas-title" id="offcanvasExampleLabel">
-                Product Locator
-              </h3>
-              <button
-                type="button"
-                className="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="offcanvas-body">
-              <div className="col-xl-auto">
-                <div className="col-xl-auto" style={{ width: 16, height: 27 }}>
+              <div>
+                <div style={{ width: 16, height: 27 }}>
                   {sections.map(({ name }) => {
                     return data[name].products?.positionTab?.map(
                       (product, index) => {
@@ -301,33 +167,96 @@ const HomePage: React.FC<mapProps> = () => {
                           <>
                             <div
                               className="card d-flex justify-content-evenly"
-                              style={{ width: 500, height: 270 }}
+                              style={{ width: 330, height: 290 }}
                               key={index}
                             >
                               <div className="card-body">
                                 <br />
-                                <h4 className="card-title">{product.label}</h4>
+                                <h4 className="mytitle  card-title">
+                                  {product.label}
+                                </h4>
                                 <br />
-                                <img
-                                  src={product.img}
-                                  className="card-img-top"
-                                  alt="my Image"
-                                  style={{ width: 120, height: 100 }}
-                                />
+                                <div className="d-flex justify-content-center">
+                                  <div>
+                                    <img
+                                      src={product.img}
+                                      className="card-img-top"
+                                      alt="my Image"
+                                      style={{ width: 120, height: 100 }}
+                                    />
+                                  </div>
+                                </div>
+
                                 <br />
                                 <h5 className="card-title">
                                   {product.price + "0"} €
                                 </h5>
-                                <button
-                                  className="btn btn-primary"
-                                  onClick={(e) => setIdProduct(product.id)}
-                                  value={product.id}
+
+                                <a
+                                  className="sidebtn btn btn-primary"
+                                  href={`https://www.leroymerlin.fr/v3/search/search.do?keyword=${product.id}`}
+                                  target="_blank"
                                 >
-                                  Afficher ce produit sur la carte
-                                </button>
+                                  Voir le produit sur Leroy Merlin
+                                </a>
+                                <button
+                                  onClick={() => {
+                                    {
+                                      setIdProduct(product.id);
+                                    }
+                                    {
+                                      setDeleteColor("none");
+                                    }
+                                  }}
+                                  className="fas fa-crosshairs"
+                                ></button>
 
                                 <br />
                               </div>
+
+                              {/* my card begin */}
+                              <div className="card">
+                                <img
+                                  src={product.img}
+                                  className="card-img-top"
+                                  alt="..."
+                                />
+                                <div className="card-body">
+                                  <h5 className="card-title">
+                                    {" "}
+                                    {product.label}
+                                  </h5>
+
+                                  <p className="card-text">
+                                    <small className="text-muted">
+                                      {product.price + "0"} €
+                                    </small>
+                                  </p>
+                                </div>
+                                <div className="card-footer">
+                                  <a
+                                    className="sidebtn btn btn-primary"
+                                    href={`https://www.leroymerlin.fr/v3/search/search.do?keyword=${product.id}`}
+                                    target="_blank"
+                                  >
+                                    Voir le produit sur Leroy Merlin
+                                  </a>
+                                </div>
+                              </div>
+                              <button
+                                onClick={() => {
+                                  {
+                                    setIdProduct(product.id);
+                                  }
+                                  {
+                                    setDeleteColor("none");
+                                  }
+                                }}
+                                className="fas fa-crosshairs"
+                              ></button>
+
+                              {/* end card */}
+
                               <br />
                             </div>
                           </>
@@ -337,6 +266,38 @@ const HomePage: React.FC<mapProps> = () => {
                   })}
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="map col-9">
+            <div className="image" style={{ transform: `scale(0.41)` }}>
+              <img
+                src="https://m1.lmcdn.fr/media/18/5d0901067eb45f348d8a8c9f/1798045962/map-png-store-3.png"
+                alt=""
+              />
+              {sections.map(({ name }) => {
+                return data[name].products?.positionTab?.map(
+                  (product, index) => {
+                    return (
+                      <>
+                        {product.id === idProduct ? (
+                          <div
+                            key={index}
+                            className={name}
+                            style={dotStyleOneProduct(product.x, product.y)}
+                          ></div>
+                        ) : (
+                          <div
+                            key={index}
+                            className={name}
+                            style={dotStyle(product.x, product.y)}
+                          ></div>
+                        )}
+                      </>
+                    );
+                  }
+                );
+              })}
             </div>
           </div>
         </div>

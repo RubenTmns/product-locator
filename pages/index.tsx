@@ -93,43 +93,7 @@ const HomePage: React.FC<mapProps> = () => {
           <a className="navbar-brand" href="#">
             Product Locator
           </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarScroll">
-            <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-            </ul>
-            <a className="btn btn-outline-success me-2" type="button" href="#">
-              <div className="bd-highlight">
-                <i className="fas fa-store-alt"></i>
-              </div>
-            </a>
-            <a
-              className="btn btn-outline-success me-2"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@getbootstrap"
-            >
-              <div className=" bd-highlight">
-                <i className="far fa-user"></i>
-              </div>
-            </a>
-
-            <div className="d-flex">
+            <div className=" mabar d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -147,7 +111,7 @@ const HomePage: React.FC<mapProps> = () => {
               </button>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </nav>
       {/* Login page */}
 
@@ -155,9 +119,7 @@ const HomePage: React.FC<mapProps> = () => {
         <div className="row">
           <div className="sidebar col-3">
             <div style={{ height: 1950, width: 400 }}>
-              <div>
-                <h3>Product Locator</h3>
-              </div>
+              
               <div>
                 <div style={{ width: 16, height: 27 }}>
                   {sections.map(({ name }) => {
@@ -176,30 +138,28 @@ const HomePage: React.FC<mapProps> = () => {
                                   {product.label}
                                 </h4>
                                 <br />
-                                <div className="d-flex justify-content-center">
-                                  <div>
-                                    <img
+                                <div className="d-flex"style={{textAlign: "center", alignContent: "center"}}>
+                                <img
                                       src={product.img}
                                       className="card-img-top"
                                       alt="my Image"
                                       style={{ width: 120, height: 100 }}
                                     />
-                                  </div>
-                                </div>
-
+                                  <h5 className="mx-4" >Prix: {product.price + "0"} €</h5>
+                                </div> 
                                 <br />
-                                <h5 className="card-title">
-                                  {product.price + "0"} €
-                                </h5>
-
-                                <a
-                                  className="sidebtn btn btn-primary"
+                               <div className="d-flex flex-row">
+                                 <div>
+                                 <a
+                                  className="sidebtn btn btn-secondary" style={{padding:"0.9rem"}}
                                   href={`https://www.leroymerlin.fr/v3/search/search.do?keyword=${product.id}`}
                                   target="_blank"
                                 >
-                                  Voir le produit sur Leroy Merlin
+                                  Voir le produit
                                 </a>
-                                <button
+                                 </div>
+                                 <div className="mx-3">
+                                 <button
                                   onClick={() => {
                                     {
                                       setIdProduct(product.id);
@@ -208,55 +168,16 @@ const HomePage: React.FC<mapProps> = () => {
                                       setDeleteColor("none");
                                     }
                                   }}
-                                  className="fas fa-crosshairs"
+                                  className="fas fa-crosshairs rounded border border-light"
+                                  style={{padding:"1.2rem" ,background:"#78be20", color:"white"}}
                                 ></button>
+                                 </div>
 
+                               </div>
+                               
+                                
                                 <br />
                               </div>
-
-                              {/* my card begin */}
-                              <div className="card">
-                                <img
-                                  src={product.img}
-                                  className="card-img-top"
-                                  alt="..."
-                                />
-                                <div className="card-body">
-                                  <h5 className="card-title">
-                                    {" "}
-                                    {product.label}
-                                  </h5>
-
-                                  <p className="card-text">
-                                    <small className="text-muted">
-                                      {product.price + "0"} €
-                                    </small>
-                                  </p>
-                                </div>
-                                <div className="card-footer">
-                                  <a
-                                    className="sidebtn btn btn-primary"
-                                    href={`https://www.leroymerlin.fr/v3/search/search.do?keyword=${product.id}`}
-                                    target="_blank"
-                                  >
-                                    Voir le produit sur Leroy Merlin
-                                  </a>
-                                </div>
-                              </div>
-                              <button
-                                onClick={() => {
-                                  {
-                                    setIdProduct(product.id);
-                                  }
-                                  {
-                                    setDeleteColor("none");
-                                  }
-                                }}
-                                className="fas fa-crosshairs"
-                              ></button>
-
-                              {/* end card */}
-
                               <br />
                             </div>
                           </>

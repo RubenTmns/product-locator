@@ -377,6 +377,7 @@ a {
   margin-bottom: auto;
   width: 800px;
   justify-items: center;
+  border : solid #78be20 1px
 
   /* background-color: rgba(0, 0, 0, 0.5) !important; */
   /* border-radius: 1em; */
@@ -411,7 +412,7 @@ a {
 }
 
 .mytitle {
-  color: #554f52;
+  color : black;
   font-weight: 400;
   font-size: 25px;
   height: 56px;
@@ -430,7 +431,7 @@ a {
 }
 
 .card-img-top {
-  border: #78be20 solid 0.5px;
+  border: grey solid 0.5px;
   display: flex;
   justify-content: center;
 }
@@ -438,4 +439,14 @@ a {
 .sidebtn {
   background-color: #78be20;
   border-color: #78be20;
+}
+
+.btn-outline-success{
+  color : #78be20;
+  border : #78be20 solid 0.5px;
+}
+
+.mabar {
+  display: flex;
+  justify-content: center;
 }

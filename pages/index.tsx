@@ -7,30 +7,21 @@ const Acceuil: React.FC<{ search }> = ({ search }) => {
 
   return (
     <>
-      <div
-        className="d-flex flex-column justify-content-center align-items-center align-middle"
-        style={{ margin: "5rem 0 0 0" }}
-      >
-        <div className="">
-          <img
-            src="/lm.png"
-            className="rounded "
-            alt="..."
-            style={{ width: "30rem", height: "20rem" }}
-          />
-        </div>
+      <div className="d-flex flex-column justify-content-center align-items-center align-middle">
+        <img src="/loca.png" className="rounded " alt="..." />
+
         <form action="/api/accueil" method="POST">
           <div className="input-group " style={{ width: "50rem" }}>
             <input
               type="text"
               name="input"
-              className="form-control p-3 mt-3"
-              placeholder="Search product"
+              className="form-control p-3 "
+              placeholder="Rechercher votre produit"
               aria-label="Input group example"
               aria-describedby="basic-addon1"
             />
             <button
-              className="input-group-text p-3 mt-3 "
+              className="input-group-text p-3 "
               style={{ cursor: "pointer" }}
               type="submit"
               onSubmit={(e) => e.preventDefault}
@@ -53,7 +44,10 @@ const Acceuil: React.FC<{ search }> = ({ search }) => {
         </h1>
         <br />
         <br />
-        <p>Powered by Leroy Merlin</p>
+        <p>
+          Powered by Leroy Merlin
+          <img src="/lmmm.png" style={{ width: "2rem", height: "1.5rem" }} />
+        </p>
       </div>
     </>
   );

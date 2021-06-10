@@ -21,8 +21,6 @@ type mapProps = {
 };
 
 const HomePage: React.FC<mapProps> = ({ search }) => {
-  
-
   const [data, setData] = React.useState(categoryObject);
 
   const [searchedProduct, setSearchedProduct] = React.useState(search);
@@ -98,28 +96,33 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
     }
     if (searchedProduct !== change) {
       change = searchedProduct;
-      router.push(`/${change}`);
+      if (change !== "" && change !== undefined) {
+        router.push(`/${change}`);
+      }
     }
     setDeleteColor("block");
-    
   }, [searchedProduct]);
 
   const [point, setPoint] = React.useState(false);
-
-  
 
   return (
     <>
       <div className="d-flex justify-content-between mb-4 mt-3">
         <div className="mt-4 mx-2 ">
-          <h4> Leroy Merlin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Merlimont</h4>
+          <h4>
+            {" "}
+            <a href="/">
+              <img src="/lmmm.png" width="70rem" height="50rem" />
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp; Merlimont
+          </h4>
         </div>
         <div className="input-group d-flex mx-auto" style={{ width: "50rem" }}>
           <input
             type="text"
             name="input"
             className="form-control p-3 mt-3"
-            placeholder="Search product"
+            placeholder="Rechercher votre produit"
             aria-label="Input group example"
             aria-describedby="basic-addon1"
             value={searchedProduct}
@@ -201,6 +204,23 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
                                       target="_blank"
                                     >
                                       Voir le produit
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="16"
+                                        height="16"
+                                        fill="currentColor"
+                                        className="bi bi-box-arrow-in-right"
+                                        viewBox="0 0 16 16"
+                                      >
+                                        <path
+                                          fill-rule="evenodd"
+                                          d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+                                        ></path>
+                                        <path
+                                          fill-rule="evenodd"
+                                          d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                                        ></path>
+                                      </svg>
                                     </a>
                                   </div>
                                   <div className="mx-3">

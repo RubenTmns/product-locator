@@ -450,3 +450,7 @@ a {
   display: flex;
   justify-content: center;
 }
+.footer {
+  margin-top: 10rem;
+  position: fixed;
+}

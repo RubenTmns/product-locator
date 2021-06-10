@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
+import Footer from "next";
 
 const Acceuil: React.FC<{ search }> = ({ search }) => {
   const router = useRouter();
@@ -8,17 +9,16 @@ const Acceuil: React.FC<{ search }> = ({ search }) => {
     <>
       <div
         className="d-flex flex-column justify-content-center align-items-center align-middle"
-        style={{ margin: "13rem 0 0 0" }}
+        style={{ margin: "5rem 0 0 0" }}
       >
         <div className="">
           <img
-            src="/accueil.png"
+            src="/lm.png"
             className="rounded "
             alt="..."
-            style={{ width: "30rem" }}
+            style={{ width: "30rem", height: "20rem" }}
           />
         </div>
-
         <form action="/api/accueil" method="POST">
           <div className="input-group " style={{ width: "50rem" }}>
             <input
@@ -48,8 +48,12 @@ const Acceuil: React.FC<{ search }> = ({ search }) => {
             </button>
           </div>
         </form>
-
-        <h1 className="mt-5">Chaque recherche vous fait gagner du temps</h1>
+        <h1 className="divIntro mt-5">
+          Chaque recherche vous fait gagner du temps
+        </h1>
+        <br />
+        <br />
+        <p>Powered by Leroy Merlin</p>
       </div>
     </>
   );

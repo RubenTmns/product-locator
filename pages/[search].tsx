@@ -112,11 +112,9 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
 
   return (
     <>
-      {/* <div className="d-flex justify-content-between">
-        <div>
-          <a className="navbar-brand" href="/">
-            Product Locator
-          </a>
+      <div className="d-flex justify-content-between mb-4 mt-3">
+        <div className="mt-4 mx-2 ">
+          <h4> Leroy Merlin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Merlimont</h4>
         </div>
         <div className="input-group d-flex mx-auto" style={{ width: "50rem" }}>
           <input
@@ -126,6 +124,7 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
             placeholder="Search product"
             aria-label="Input group example"
             aria-describedby="basic-addon1"
+            value={searchedProduct}
             onChange={(e) => setSearchedProduct(e.target.value)}
           />
           <button
@@ -148,12 +147,10 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
             </svg>
           </button>
         </div>
-        <div>
-  <h1>Info magasin</h1>
-</div>
-      </div>  */}
+        <div className="mx-2"></div>
+      </div>
 
-      <nav className="notreNav navbar navbar-expand-lg navbar-light ">
+      {/* <nav className="notreNav navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             Product Locator
@@ -193,8 +190,8 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
             </button>
           </div>
         </div>
-        {/* </div> */}
-      </nav>
+     
+      </nav> */}
       {/* Login page */}
 
       <div className="all container-fluid">

@@ -112,7 +112,7 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
           <a className="navbar-brand" href="#">
             Product Locator
           </a>
-          <div className=" mabar d-flex">
+          {/* <div className=" mabar d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -127,6 +127,40 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
               onClick={() => userAction(searchedProduct)}
             >
               Search
+            </button>
+          </div> */}
+
+          <div
+            className="input-group d-flex mx-auto"
+            style={{ width: "50rem" }}
+          >
+            <input
+              type="text"
+              name="input"
+              className="form-control p-3 mt-3"
+              placeholder="Search product"
+              aria-label="Input group example"
+              aria-describedby="basic-addon1"
+              onChange={(e) => setSearchedProduct(e.target.value)}
+            />
+            <button
+              className="input-group-text p-3 mt-3 "
+              style={{ cursor: "pointer" }}
+              type="submit"
+              onClick={() => {
+                userAction(searchedProduct);
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-search "
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+              </svg>
             </button>
           </div>
         </div>
@@ -151,11 +185,10 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
                               key={index}
                             >
                               <div className="card-body">
-                                <br />
-                                <h4 className="mytitle  card-title">
+                                <h4 className="mytitle fs-6 card-title mt-5 fw-bold ">
                                   {product.label}
                                 </h4>
-                                <br />
+
                                 <div
                                   className="d-flex"
                                   style={{

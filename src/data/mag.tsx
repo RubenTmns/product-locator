@@ -164,76 +164,95 @@ export const categoryObject: CategoryObj = {
   Sol: {
     position: { top: 185, left: 80, width: 850, height: 605 },
     products: [],
+    name: "Sol",
   },
 
   Cuisine: {
     position: { top: 185, left: 850, width: 1335, height: 605 },
     products: [],
+    name: "Cuisine",
   },
   Rangement: {
     position: { top: 185, left: 1335, width: 1685, height: 605 },
     products: [],
+    name: "Rangement",
   },
   Menuiserie: {
     position: { top: 185, left: 1685, width: 2315, height: 605 },
     products: [],
+    name: "Menuiserie",
   },
   MenuiserieDeux: {
     position: { top: 615, left: 1880, width: 2315, height: 855 },
     products: [],
+    name: "Menuiserie",
   },
   Decoration: {
     position: { top: 642, left: 80, width: 490, height: 1182 },
     products: [],
+    name: "Décoration",
   },
   Peinture: {
     position: { top: 650, left: 520, width: 905, height: 1080 },
     products: [],
+    name: "Peinture",
   },
   PeintureDeux: {
     position: { top: 1080, left: 520, width: 905, height: 1380 },
     products: [],
+    name: "Peinture",
   },
   SalleDeBains: {
     position: { top: 645, left: 905, width: 1555, height: 1015 },
     products: [],
+    name: "Salle de Bains",
   },
   Chauffage: {
     position: { top: 715, left: 1555, width: 1855, height: 1175 },
     products: [],
+    name: "Chauffage",
   },
 
   Electricite: {
     position: { top: 855, left: 1880, width: 2215, height: 1115 },
     products: [],
+    name: "Éléctricité",
   },
   Plomberie: {
     position: { top: 1115, left: 1880, width: 2215, height: 1250 },
     products: [],
+    name: "Plomberie",
   },
   Eclairage: {
     position: { top: 1182, left: 80, width: 490, height: 1552 },
     products: [],
+    name: "Éclairage",
   },
   Quincaillerie: {
     position: { top: 1015, left: 905, width: 1180, height: 1375 },
     products: [],
+    name: "Quincaillerie",
   },
   QuincaillerieDeux: {
     position: { top: 1400, left: 1250, width: 1520, height: 1690 },
     products: [],
+    name: "Quincaillerie",
   },
   Outillage: {
     position: { top: 1015, left: 1180, width: 1555, height: 1375 },
     products: [],
+    name: "Outillage",
   },
   Jardin: {
     position: { top: 1400, left: 1515, width: 2325, height: 1690 },
     products: [],
+    name: "Jardin",
   },
+
   JardinDeux: {
     position: { top: 1240, left: 1870, width: 2320, height: 1380 },
     products: [],
+    name: "Jardin",
   },
   liste: {
     position: { top: 100, left: 2320, width: 2320, height: 1800 },

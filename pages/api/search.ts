@@ -17,7 +17,6 @@ export default async function search(
   if (request.method === "POST") {
     const search = request.query.q;
 
-    //console.log("QUERY", search);
     let queryIdProduct = [];
     let positionTab: Products[] = [];
     let productsList: Products[] = [];
@@ -108,13 +107,6 @@ export default async function search(
       positionProduct.img = productLabel.img;
       positionProduct.price = productPrice.price;
     });
-
-    // let mergedArray = productsList.map((product, i) =>
-    //   Object.assign({}, product, positionTab[i])
-    // );
-    //console.log("POSTIONT", mergedArray);
-
-    //fin verificationnnnnnnnnnnnnnnnnnn
 
     response.status(200).json({ positionTab });
   }

@@ -106,26 +106,9 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
     <>
       <nav className="notreNav navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             Product Locator
           </a>
-          {/* <div className=" mabar d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              name="searchInput"
-              aria-label="Search"
-              onChange={(e) => setSearchedProduct(e.target.value)}
-            />
-            <button
-              className="btn btn-outline-success"
-              type="submit"
-              onClick={() => userAction(searchedProduct)}
-            >
-              Search
-            </button>
-          </div> */}
 
           <div
             className="input-group d-flex mx-auto"

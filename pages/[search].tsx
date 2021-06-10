@@ -21,7 +21,7 @@ type mapProps = {
 };
 
 const HomePage: React.FC<mapProps> = ({ search }) => {
-  //const [resolvedProduct, setResolvedProduct] = React.useState<Products[]>([]);
+  
 
   const [data, setData] = React.useState(categoryObject);
 
@@ -101,9 +101,7 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
       router.push(`/${change}`);
     }
     setDeleteColor("block");
-    // if (idProduct) {
-    //   setIdProduct("");
-    // }
+    
   }, [searchedProduct]);
 
   const [point, setPoint] = React.useState(false);
@@ -212,7 +210,7 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
 
                                         setDeleteColor("none");
                                       }}
-                                      className="fas fa-crosshairs rounded border border-light"
+                                      className="btn btn-outline-dark fas fa-crosshairs rounded border border-light"
                                       style={{
                                         padding: "1.2rem",
                                         background: "#78be20",

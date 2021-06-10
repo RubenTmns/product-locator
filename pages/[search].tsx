@@ -106,7 +106,7 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
 
   const [point, setPoint] = React.useState(false);
 
-  console.log(data);
+  
 
   return (
     <>

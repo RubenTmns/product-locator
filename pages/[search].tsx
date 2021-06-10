@@ -100,7 +100,10 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
       change = searchedProduct;
       router.push(`/${change}`);
     }
+    setDeleteColor("block");
   }, [searchedProduct]);
+
+  const [point, setPoint] = React.useState(false);
 
   return (
     <>
@@ -185,11 +188,19 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
                                   <div className="mx-3">
                                     <button
                                       onClick={() => {
-                                        {
-                                          setIdProduct(product.id);
-                                        }
-                                        {
-                                          setDeleteColor("none");
+                                        if (!point) {
+                                          {
+                                            setPoint(!false);
+                                            setIdProduct(product.id);
+
+                                            setDeleteColor("none");
+                                          }
+                                        } else {
+                                          {
+                                            setPoint(false);
+                                            setIdProduct("");
+                                            setDeleteColor("block");
+                                          }
                                         }
                                       }}
                                       className="fas fa-crosshairs rounded border border-light"

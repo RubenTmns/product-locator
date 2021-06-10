@@ -150,50 +150,6 @@ const HomePage: React.FC<mapProps> = ({ search }) => {
         <div className="mx-2"></div>
       </div>
 
-      {/* <nav className="notreNav navbar navbar-expand-lg navbar-light ">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            Product Locator
-          </a>
-
-          <div
-            className="input-group d-flex mx-auto"
-            style={{ width: "50rem" }}
-          >
-            <input
-              type="text"
-              name="input"
-              className="form-control p-3 mt-3"
-              placeholder="Search product"
-              aria-label="Input group example"
-              aria-describedby="basic-addon1"
-              onChange={(e) => setSearchedProduct(e.target.value)}
-            />
-            <button
-              className="input-group-text p-3 mt-3 "
-              style={{ cursor: "pointer" }}
-              type="submit"
-              onClick={() => {
-                userAction(searchedProduct);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-search "
-                viewBox="0 0 16 16"
-              >
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-     
-      </nav> */}
-      {/* Login page */}
-
       <div className="all container-fluid">
         <div className="row">
           <div className="sidebar col-3">
